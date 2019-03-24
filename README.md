@@ -118,7 +118,7 @@
 
 ## Packages Incorporated
 
-To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/react-bb-kit/blob/master/package.json#L93-L161">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/react-bb-kit/issues">here</a>.
+To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/react-bb-kit/blob/master/package.json#L80-L161">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/react-bb-kit/issues">here</a>.
 
 <details>
 <summary>Click to expand brief overview of packages</summary>
