@@ -1,6 +1,6 @@
 ## React Bare Bones Kit
 
-![vZX66ZP.png](https://i.imgur.com/vZX66ZP.png)
+![jxvktjf.png](https://i.imgur.com/jxvktjf.png)
 
 ## Table of contents
 
