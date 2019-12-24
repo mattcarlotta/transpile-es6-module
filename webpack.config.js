@@ -1,5 +1,5 @@
 const devServer = require('./config/devServer');
-const getPlugins = require('./config/plugins');
+const plugins = require('./config/plugins');
 const optimization = require('./config/optimization');
 const output = require('./config/output');
 const rules = require('./config/rules');
@@ -10,11 +10,14 @@ const { inDevelopment } = require('./config/envs');
 // WEBPACK CONFIGURATION                                           //
 // =============================================================== //
 
+const devtool = inDevelopment ? 'cheap-module-source-map' : false;
+const mode = inDevelopment ? 'development' : 'production';
+
 module.exports = {
-  devtool: inDevelopment ? 'cheap-module-source-map' : false,
+  devtool,
   devServer,
   entry: [entryPath],
-  mode: inDevelopment ? 'development' : 'production',
+  mode,
   module: { rules },
   optimization,
   output,
@@ -25,5 +28,5 @@ module.exports = {
     modules: ['src', 'node_modules'],
     extensions: ['*', '.js', '.jsx', '.css', '.scss'],
   },
-  plugins: getPlugins(),
+  plugins,
 };

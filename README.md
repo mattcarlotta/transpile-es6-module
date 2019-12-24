@@ -74,16 +74,21 @@
 
 ## Commands
 
-| `yarn <command>` | Description                                                              |
-| ---------------- | ------------------------------------------------------------------------ |
-| `dev`            | Starts a development server at `localhost:3000`.                         |
-| `start`          | Starts a production server at `localhost:8080` (must run `build` first). |
-| `build`          | Compiles application to a `dist` folder.                                 |
-| `lint:js`        | Lint all `.js` files.                                                    |
-| `lint:styles`    | Lint all `.scss` files.                                                  |
-| `format`         | Prettify all `.js` files.                                                |
-| `test`           | Runs and watches all `.test.js` files.                                   |
-| `test:coverage`  | Runs a coverage report for `.test.js` files.                             |
+| `yarn <command>` | Description                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------- |
+| `dev`            | Starts both servers (client: `localhost:3000`, API: `localhost:5000`).                 |
+| `initialize`     | Installs dependencies for client and API servers.                                      |
+| `start`          | Starts a production server at `localhost:8080` (must run `build` and `compile` first). |
+| `compile`        | Compiles server application to a `build` folder.                                       |
+| `build`          | Compiles client application to a `client/dist` folder.                                 |
+| `checkbuild`     | Checks to see if the `client/dist` folder is ES5 compliant (for IE11).                 |
+| `analyze`        | Compiles a production build in `client/dist` and spawns a chunk distribution chart.    |
+| `lintjs`         | Lint all of client's `.js` files.                                                      |
+| `lintstyles`     | Lint all `.scss` files.                                                                |
+| `test`           | Runs `.test.js` files for the client and server.                                       |
+| `test:watch`     | Runs `.test.js` files for the client only.                                             |
+| `test:watchall`  | Runs and watches `.test.js` files for the client.                                      |
+| `test:coverage`  | Runs `.test.js` files and collects coverage for the client.                            |
 
 ## Configuration
 
@@ -118,7 +123,7 @@
 
 ## Packages Incorporated
 
-To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/react-bb-kit/blob/master/package.json#L80-L161">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/react-bb-kit/issues">here</a>.
+To see the latest package versions, please check out the <a href="https://github.com/mattcarlotta/react-bb-kit/blob/master/package.json#L106-L183">package.json</a>. If you run into any issues, please fill out an issue report <a href="https://github.com/mattcarlotta/react-bb-kit/issues">here</a>.
 
 <details>
 <summary>Click to expand brief overview of packages</summary>

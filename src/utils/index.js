@@ -1,4 +1,4 @@
-import { shallow, mount } from 'enzyme';
+import { shallow, mount } from "enzyme";
 
 /**
  * Factory function to create a ShallowWrapper for a component
@@ -8,9 +8,9 @@ import { shallow, mount } from 'enzyme';
  * @returns {ShallowWrapper}
  */
 export const shallowWrap = (Component, state = null) => {
-  const wrapper = shallow(Component);
-  if (state) wrapper.setState(state);
-  return wrapper;
+	const wrapper = shallow(Component);
+	if (state) wrapper.setState(state);
+	return wrapper;
 };
 
 /**
@@ -22,7 +22,7 @@ export const shallowWrap = (Component, state = null) => {
  * @returns {MountedWrapper}
  */
 export const mountWrap = (Component, state = null) => {
-  const wrapper = mount(Component);
-  if (state) wrapper.setState(state);
-  return wrapper;
+	const wrapper = mount(Component);
+	if (state) wrapper.setState(state);
+	return wrapper;
 };

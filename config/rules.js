@@ -1,5 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin').loader;
-const { imagesFolder, fontsFolder, globalCSS, localCSS } = require('./paths');
+const { imagesFolder, fontsFolder } = require('./paths');
 const { inDevelopment, localIdentName } = require('./envs');
 
 // =============================================================== //
@@ -29,9 +29,8 @@ const mediaRule = ({ test, outputPath }) => ({
 });
 
 /* defines a SCSS rule */
-const sassRule = ({ include, exclude, modules, sourceMap }) => ({
-  test: /\.s?css$/,
-  include,
+const cssRule = ({ exclude, modules, sourceMap, test }) => ({
+  test,
   exclude,
   use: [
     inDevelopment ? 'style-loader' : MiniCssExtractPlugin,
@@ -39,17 +38,23 @@ const sassRule = ({ include, exclude, modules, sourceMap }) => ({
       loader: 'css-loader',
       options: {
         sourceMap: sourceMap || !inDevelopment,
-        modules: modules || false,
-        camelCase: true,
-        localIdentName,
+        modules: {
+          mode: modules ? 'local' : 'global',
+          localIdentName,
+        },
+        localsConvention: 'camelCase',
       },
     },
     'sass-loader',
   ],
 });
 
-/* webpack module rules */
-const rules = [
+const cssRegex = /\.css$/;
+const cssModuleRegex = /\.module\.css$/;
+const sassRegex = /\.(scss|sass)$/;
+const sassModuleRegex = /\.module\.(scss|sass)$/;
+
+module.exports = [
   /* lints JS files on compilation */
   jsRule({
     enforce: 'pre',
@@ -76,14 +81,24 @@ const rules = [
     test: /\.(woff2|ttf|woff|eot)$/,
     outputPath: fontsFolder,
   }),
-  /* handles SCSS imports that are component-level or partials */
-  sassRule({
-    include: [localCSS],
-    exclude: [globalCSS],
+  /* handles CSS imports */
+  cssRule({
+    test: cssRegex,
+    exclude: cssModuleRegex,
+  }),
+  /* handles CSS module imports */
+  cssRule({
+    test: cssModuleRegex,
     modules: true,
   }),
-  /* handles SCSS imports that are global only */
-  sassRule({ include: [globalCSS] }),
+  /* handles SCSS imports */
+  cssRule({
+    test: sassRegex,
+    exclude: sassModuleRegex,
+  }),
+  /* handles SCSS module imports */
+  cssRule({
+    test: sassModuleRegex,
+    modules: true,
+  }),
 ];
-
-module.exports = rules;
