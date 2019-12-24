@@ -1,9 +1,9 @@
 import React from "react";
 import logo from "@images/logo.svg";
-import { app, logoContainer, logoStyle, title } from "./Home.module.scss";
+import { container, logoContainer, logoStyle, title } from "./Home.module.scss";
 
 export default () => (
-	<div className={app}>
+	<div className={container}>
 		<div className={logoContainer}>
 			<img className={logoStyle} src={logo} alt="" />
 			<h1 className={title}>React Bare Bones Kit</h1>

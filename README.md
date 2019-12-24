@@ -76,11 +76,11 @@
 
 | `yarn <command>` | Description                                                                            |
 | ---------------- | -------------------------------------------------------------------------------------- |
-| `dev`            | Starts both servers (client: `localhost:3000`, API: `localhost:5000`).                 |
-| `initialize`     | Installs dependencies for client and API servers.                                      |
+| `dev`            | Starts a webpack-dev-server at `localhost:3000`.                                       |
+| `initialize`     | Installs dependencies.                                                                 |
 | `start`          | Starts a production server at `localhost:8080` (must run `build` and `compile` first). |
 | `compile`        | Compiles server application to a `build` folder.                                       |
-| `build`          | Compiles client application to a `client/dist` folder.                                 |
+| `build`          | Compiles client application to a `dist` folder.                                        |
 | `checkbuild`     | Checks to see if the `client/dist` folder is ES5 compliant (for IE11).                 |
 | `analyze`        | Compiles a production build in `client/dist` and spawns a chunk distribution chart.    |
 | `lintjs`         | Lint all of client's `.js` files.                                                      |
@@ -98,8 +98,8 @@
 - config/devServer.js: webpack devServer options.
 - config/envs.js: webpack environment variables.
 - config/optimization.js: webpack optimization options.
-- config/output.j:` webpack output options.
-- config/paths.js` webpack config folder paths.
+- config/output.j: webpack output options.
+- config/paths.js webpack config folder paths.
 - config/plugins.js: webpack plugins options.
 - config/rules.js: webpack rules functions.
 - src/styles/assets: media assets imports.

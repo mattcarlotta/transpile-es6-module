@@ -1,10 +1,9 @@
 import App from "../index.js";
 
-describe("App", () => {
-	const wrapper = mount(<App />);
+const wrapper = mount(<App />);
 
+describe("App", () => {
 	it("renders without errors", () => {
-		const homeComponent = wrapper.find(".app");
-		expect(homeComponent).toHaveLength(1);
+		expect(wrapper.find(".app").exists()).toBeTruthy();
 	});
 });

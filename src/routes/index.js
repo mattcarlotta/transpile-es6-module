@@ -5,7 +5,7 @@ import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
 
 const Routes = () => (
-	<div>
+	<div className="app">
 		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route component={NotFound} />

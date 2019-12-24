@@ -1,10 +1,9 @@
 import Home from "../index.js";
 
-describe("Home", () => {
-	const wrapper = shallow(<Home />);
+const wrapper = shallow(<Home />);
 
+describe("Home", () => {
 	it("renders without errors", () => {
-		const homeComponent = wrapper.find(".app");
-		expect(homeComponent).toHaveLength(1);
+		expect(wrapper.find(".container").exists()).toBeTruthy();
 	});
 });
