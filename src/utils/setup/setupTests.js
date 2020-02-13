@@ -1,7 +1,6 @@
 import { JSDOM } from "jsdom";
-import { configure } from "enzyme";
+import { configure, mount, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import { mountWrap, shallowWrap } from "@utils";
 
 configure({ adapter: new Adapter() });
 
@@ -20,12 +19,13 @@ global.document = document;
 global.window = document.defaultView;
 global.HTMLElement = window.HTMLElement;
 global.HTMLAnchorElement = window.HTMLAnchorElement;
-global.shallow = shallowWrap;
-global.mount = mountWrap;
+global.shallow = shallow;
+global.mount = mount;
 global.React = require("react");
 global.BrowserRouter = require("react-router-dom").BrowserRouter;
 global.Route = require("react-router-dom").Route;
 global.Switch = require("react-router-dom").Switch;
+global.flushPromises = () => new Promise(res => setImmediate(res));
 
 Object.keys(document.defaultView).forEach(property => {
 	if (typeof global[property] === "undefined") {
