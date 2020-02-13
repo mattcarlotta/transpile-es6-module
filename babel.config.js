@@ -26,7 +26,6 @@ module.exports = function(api) {
 			"@babel/preset-react",
 		],
 		plugins: [
-			["styled-jsx/babel", { optimizeForSpeed: true }],
 			["module-resolver", { alias: readDirectory("./src") }],
 			"@babel/plugin-transform-runtime",
 			["@babel/plugin-proposal-decorators", { legacy: true }],
