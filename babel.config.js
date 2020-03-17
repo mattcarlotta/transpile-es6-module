@@ -11,8 +11,10 @@ const readDirectory = path =>
 		return acc;
 	}, {});
 
-module.exports = function(api) {
+module.exports = api => {
 	api.cache(true);
+
+	const alias = readDirectory("./src");
 
 	return {
 		presets: [
@@ -26,7 +28,7 @@ module.exports = function(api) {
 			"@babel/preset-react",
 		],
 		plugins: [
-			["module-resolver", { alias: readDirectory("./src") }],
+			["module-resolver", { alias }],
 			"@babel/plugin-transform-runtime",
 			["@babel/plugin-proposal-decorators", { legacy: true }],
 			"@babel/plugin-syntax-dynamic-import",

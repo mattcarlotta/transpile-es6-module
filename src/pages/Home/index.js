@@ -1,13 +1,15 @@
 import React from "react";
+import Tooltip from "@atlaskit/tooltip";
 import logo from "~images/logo.svg";
-import { container, logoContainer, logoStyle, title } from "./Home.module.scss";
+import { container, logoContainer, logoStyle } from "./Home.module.scss";
 
 export default () => (
 	<div className={container}>
 		<div className={logoContainer}>
 			<img className={logoStyle} src={logo} alt="" />
-			<h1 className={title}>React Bare Bones Kit</h1>
-			<h1 className={title}>Edit ./components and save to reload.</h1>
+			<Tooltip content="Hire me.">
+				<h1>Hover over me to show tooltip!</h1>
+			</Tooltip>
 		</div>
 	</div>
 );
